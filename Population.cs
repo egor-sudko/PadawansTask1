@@ -7,13 +7,20 @@ namespace PadawansTask1
         public static int GetYears(int initialPopulation, double percent, int visitors, int currentPopulation)
         {
             int kol = 0;
-           while (initialPopulation < currentPopulation)
+            if ((initialPopulation != 0 || currentPopulation != 0) && (initialPopulation != currentPopulation))
             {
-                percent = (initialPopulation * 5) / 100;
-                initialPopulation = initialPopulation + visitors + (int)percent;
-                kol++;
+                while (initialPopulation < currentPopulation)
+                {
+                    percent = (initialPopulation * 5) / 100;
+                    initialPopulation = initialPopulation + visitors + (int)percent;
+                    kol++;
+                }
+                return kol;
             }
-            return kol;
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }
